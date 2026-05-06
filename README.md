@@ -2,12 +2,12 @@
 
 **Comparative Evaluation of Fast-LIO2 vs LIO-SAM for Heterogeneous Multi-Robot SLAM using ROS2 Humble**
 
-This repository contains the ROS2 workspace for a thesis project at the **Cambodia University of Technology and Science (CamTech)**. The project deploys two Clearpath robots — a **Husky A200** (indoor warehouse) and a **Warthog W200** (outdoor farm) — in Gazebo simulation, with each robot running a different LiDAR-Inertial SLAM algorithm for comparative evaluation.
+This repository contains the ROS2 workspace. The project deploys two Clearpath robots — a **Husky A200** (indoor warehouse) and a **Warthog W200** (outdoor farm) — in Gazebo simulation, with each robot running a different LiDAR-Inertial SLAM algorithm for comparative evaluation.
 
 | Robot | Environment | SLAM Algorithm | Status |
 |-------|-------------|----------------|--------|
-| Clearpath Husky A200 | Indoor Warehouse | Fast-LIO2 | ✅ Validated |
-| Clearpath Warthog W200 | Outdoor Farm | LIO-SAM | ✅ Validated |
+| Clearpath Husky A200 | Indoor Warehouse | Fast-LIO2 |  Validated |
+| Clearpath Warthog W200 | Outdoor Farm | LIO-SAM |  Validated |
 
 ---
 
@@ -287,11 +287,11 @@ LIO-SAM deskewing is disabled when the point cloud has no per-point timestamps. 
 
 ## Author
 
-**Chea Vitou** (ID: 6023010001)
+**Chea Vitou** (cheavitou30@gmail.com)
 Bachelor of Science in Robotics and Automation Engineering
-Cambodia University of Technology and Science (CamTech)
 
-Supervisors: Dr. May Thu & Mr. Kosal Cholsa
+
+Supervisors: Dr. YongAnn Voeurn
 
 ---
 
