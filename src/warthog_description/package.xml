@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>warthog_description</name>
+  <version>0.0.1</version>
+  <description>Warthog W200 description package</description>
+  <maintainer email="cheavitou30@email.com">Chea Vitou</maintainer>
+  <license>MIT</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>clearpath_description</depend>
+  <depend>xacro</depend>
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

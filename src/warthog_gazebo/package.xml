@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>warthog_gazebo</name>
+  <version>0.0.1</version>
+  <description>Warthog W200 Gazebo Fortress simulation</description>
+  <maintainer email="cheavitou30@email.com">Chea Vitou</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclpy</depend>
+  <depend>ros_gz_sim</depend>
+  <depend>ros_gz_bridge</depend>
+  <depend>robot_state_publisher</depend>
+  <depend>warthog_description</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

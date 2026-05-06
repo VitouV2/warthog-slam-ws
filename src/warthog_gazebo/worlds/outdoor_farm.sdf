@@ -1,0 +1,116 @@
+<?xml version="1.0" ?>
+<sdf version="1.9">
+  <world name="outdoor_farm">
+
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <plugin filename="ignition-gazebo-physics-system"
+            name="ignition::gazebo::systems::Physics"/>
+    <plugin filename="ignition-gazebo-user-commands-system"
+            name="ignition::gazebo::systems::UserCommands"/>
+    <plugin filename="ignition-gazebo-scene-broadcaster-system"
+            name="ignition::gazebo::systems::SceneBroadcaster"/>
+    <plugin filename="ignition-gazebo-sensors-system"
+            name="ignition::gazebo::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin filename="ignition-gazebo-imu-system"
+            name="ignition::gazebo::systems::Imu"/>
+
+    <light name="sun" type="directional">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <!-- Ground -->
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><plane><normal>0 0 1</normal><size>200 200</size></plane></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><plane><normal>0 0 1</normal><size>200 200</size></plane></geometry>
+          <material><ambient>0.4 0.3 0.1 1</ambient><diffuse>0.4 0.3 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Barn — large planar features for LIO-SAM -->
+    <model name="barn">
+      <static>true</static>
+      <pose>15 0 2 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>15 8 4</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>15 8 4</size></box></geometry>
+          <material><ambient>0.6 0.3 0.1 1</ambient></material></visual>
+      </link>
+    </model>
+
+    <!-- Water tank — cylindrical landmark for loop closure -->
+    <model name="water_tank">
+      <static>true</static>
+      <pose>-20 0 2 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><cylinder><radius>2.0</radius><length>4.0</length></cylinder></geometry></collision>
+        <visual name="visual"><geometry><cylinder><radius>2.0</radius><length>4.0</length></cylinder></geometry>
+          <material><ambient>0.3 0.3 0.6 1</ambient></material></visual>
+      </link>
+    </model>
+
+    <!-- 4 corner fence posts — edge features -->
+    <model name="post_ne"><static>true</static><pose>20 20 0.6 0 0 0</pose><link name="link">
+      <collision name="c"><geometry><box><size>0.3 0.3 1.2</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>0.3 0.3 1.2</size></box></geometry>
+        <material><ambient>0.4 0.25 0.1 1</ambient></material></visual></link></model>
+
+    <model name="post_nw"><static>true</static><pose>-20 20 0.6 0 0 0</pose><link name="link">
+      <collision name="c"><geometry><box><size>0.3 0.3 1.2</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>0.3 0.3 1.2</size></box></geometry>
+        <material><ambient>0.4 0.25 0.1 1</ambient></material></visual></link></model>
+
+    <model name="post_se"><static>true</static><pose>20 -20 0.6 0 0 0</pose><link name="link">
+      <collision name="c"><geometry><box><size>0.3 0.3 1.2</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>0.3 0.3 1.2</size></box></geometry>
+        <material><ambient>0.4 0.25 0.1 1</ambient></material></visual></link></model>
+
+    <model name="post_sw"><static>true</static><pose>-20 -20 0.6 0 0 0</pose><link name="link">
+      <collision name="c"><geometry><box><size>0.3 0.3 1.2</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>0.3 0.3 1.2</size></box></geometry>
+        <material><ambient>0.4 0.25 0.1 1</ambient></material></visual></link></model>
+
+    <!-- 4 trees — cylindrical edge features -->
+    <model name="tree_a"><static>true</static><pose>5 10 1.5 0 0 0</pose><link name="link">
+      <collision name="c"><geometry><cylinder><radius>0.3</radius><length>3.0</length></cylinder></geometry></collision>
+      <visual name="v"><geometry><cylinder><radius>0.3</radius><length>3.0</length></cylinder></geometry>
+        <material><ambient>0.2 0.5 0.1 1</ambient></material></visual></link></model>
+
+    <model name="tree_b"><static>true</static><pose>5 -10 1.5 0 0 0</pose><link name="link">
+      <collision name="c"><geometry><cylinder><radius>0.3</radius><length>3.0</length></cylinder></geometry></collision>
+      <visual name="v"><geometry><cylinder><radius>0.3</radius><length>3.0</length></cylinder></geometry>
+        <material><ambient>0.2 0.5 0.1 1</ambient></material></visual></link></model>
+
+    <model name="tree_c"><static>true</static><pose>-5 10 1.5 0 0 0</pose><link name="link">
+      <collision name="c"><geometry><cylinder><radius>0.3</radius><length>3.0</length></cylinder></geometry></collision>
+      <visual name="v"><geometry><cylinder><radius>0.3</radius><length>3.0</length></cylinder></geometry>
+        <material><ambient>0.2 0.5 0.1 1</ambient></material></visual></link></model>
+
+    <model name="tree_d"><static>true</static><pose>-5 -10 1.5 0 0 0</pose><link name="link">
+      <collision name="c"><geometry><cylinder><radius>0.3</radius><length>3.0</length></cylinder></geometry></collision>
+      <visual name="v"><geometry><cylinder><radius>0.3</radius><length>3.0</length></cylinder></geometry>
+        <material><ambient>0.2 0.5 0.1 1</ambient></material></visual></link></model>
+
+    <!-- Shed -->
+    <model name="shed"><static>true</static><pose>0 18 1.5 0 0 0</pose><link name="link">
+      <collision name="collision"><geometry><box><size>6 4 3</size></box></geometry></collision>
+      <visual name="visual"><geometry><box><size>6 4 3</size></box></geometry>
+        <material><ambient>0.5 0.4 0.2 1</ambient></material></visual></link></model>
+
+  </world>
+</sdf>
